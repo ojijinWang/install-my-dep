@@ -2,8 +2,8 @@
 
 it is for my PC of Thinkpad P51
 
-1.install cuda\
-refer to \
+1.install cuda
+refer to
   https://blog.csdn.net/yhaolpz/article/details/71375762
 
 0.install the nvidia driver from
