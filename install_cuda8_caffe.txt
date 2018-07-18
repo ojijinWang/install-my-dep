@@ -4,6 +4,9 @@ it is for my PC of Thinkpad P51
 refer to
   https://blog.csdn.net/yhaolpz/article/details/71375762
 
+-1.change the OS setting from the setup screen (key ENTER when you turn on the PC)
+BOOT -> clear boot xxxx
+
 0.install the nvidia driver from
 system setting -> softupdate -> addional driver -> nvidia driver...
 
