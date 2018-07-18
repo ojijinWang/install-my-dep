@@ -69,3 +69,53 @@ cd /usr/local/cuda-8.0/samples/1_Utilities/deviceQuery
 sudo make
 ./deviceQuery
 
+
+
+
+
+
+1.install caffe
+# in roof
+git clone https://github.com/BVLC/caffe.git
+cd ./caffe
+sudo cp Makefile.config.example Makefile.config
+#change Makefile.config setting
+sudo gedit Makefile.config
+from
+#USE_CUDNN := 1
+#OPENCV_VERSION := 3 
+#WITH_PYTHON_LAYER := 1 
+INCLUDE_DIRS := $(PYTHON_INCLUDE) /usr/local/include
+LIBRARY_DIRS := $(PYTHON_LIB) /usr/local/lib /usr/lib 
+to 
+USE_CUDNN := 1
+OPENCV_VERSION := 3
+WITH_PYTHON_LAYER := 1
+INCLUDE_DIRS := $(PYTHON_INCLUDE) /usr/local/include /usr/include/hdf5/serial
+LIBRARY_DIRS := $(PYTHON_LIB) /usr/local/lib /usr/lib /usr/lib/x86_64-linux-gnu /usr/lib/x86_64-linux-gnu/hdf5/serial  
+#change Makefile setting
+gedit Makefile.txt
+from
+NVCCFLAGS +=-ccbin=$(CXX) -Xcompiler-fPIC $(COMMON_FLAGS)
+NVCCFLAGS +=-ccbin=$(CXX) -Xcompiler-fPIC $(COMMON_FLAGS)
+NVCCFLAGS += -D_FORCE_INLINES -ccbin=$(CXX) -Xcompiler -fPIC $(COMMON_FLAGS)
+to
+NVCCFLAGS += -D_FORCE_INLINES -ccbin=$(CXX) -Xcompiler -fPIC $(COMMON_FLAGS)
+#change .h file setting
+cd /usr/local/cuda/include
+sudo gedit host_config.h 
+from
+#error-- unsupported GNU version! gcc versions later than 4.9 are not supported!
+to
+//#error-- unsupported GNU version! gcc versions later than 4.9 are not supported!
+#make
+cd
+cd ./caffe
+make all -j8
+sudo make runtest -j8
+# error while loading shared libraries: libcudart.so.8.0: cannot open shared object file: No such file or directory
+sudo ldconfig /usr/local/cuda/lib64
+sudo make runtest -j8
+
+
+
