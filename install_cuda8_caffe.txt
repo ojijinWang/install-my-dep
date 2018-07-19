@@ -120,3 +120,11 @@ sudo make runtest -j8
 
 
 
+
+fatal error: caffe/caffe.hpp: No such file or directory
+#ifndef USE_OPENCV
+#define USE_OPENCV
+
+#endif
+
+
