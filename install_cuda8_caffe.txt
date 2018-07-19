@@ -121,7 +121,11 @@ sudo make runtest -j8
 
 
 
-fatal error: caffe/caffe.hpp: No such file or directory
+3.problem when use caffe in ros
+1.add path
+set(Caffe_INCLUDE_DIRS ~/software/caffe/include)
+
+2.fatal error: caffe/caffe.hpp: No such file or directory
 #ifndef USE_OPENCV
 #define USE_OPENCV
 
