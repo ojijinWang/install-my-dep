@@ -9,6 +9,7 @@ BOOT -> clear boot xxxx
 
 0.install the nvidia driver from
 system setting -> softupdate -> addional driver -> nvidia driver...
+we must remember the dirver version 384.17 or other. it is related to select the wright cuda verion. in our case, it might be cuda 9.0
 
 1. install basic deps
 sudo apt-get install libprotobuf-dev libleveldb-dev libsnappy-dev libopencv-dev libhdf5-serial-dev protobuf-compiler
